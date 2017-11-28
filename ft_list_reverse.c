@@ -14,13 +14,17 @@ void    ft_list_reverse(t_list **begin_list)
     t_list  *temp_next;
     t_list  *temp_prev;
 
-    if ((begin_list != NULL) && ((*begin_list) != NULL) && ((*begin_list)->next) != NULL)
-    {   
-        ft_swap(begin_list, &temp_prev, &temp_next, NULL);
 
+    if ((begin_list != NULL) && ((*begin_list) != NULL) && ((*begin_list)->next) != NULL)
+    {
+        /* treat the first element of the list */
+        ft_swap(begin_list, &temp_prev, &temp_next, NULL);
+       
+        /* treat the middle elements (after the first, before the last = [2, (n-1)]) */
         while ((*begin_list)->next != NULL)
             ft_swap(begin_list, &temp_prev, &temp_next, temp_prev);
 
+        /* treat the last element */
         (*begin_list)->next = temp_prev;
     }   
 }
