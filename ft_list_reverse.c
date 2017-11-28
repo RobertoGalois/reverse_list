@@ -14,6 +14,8 @@ void    ft_list_reverse(t_list **begin_list)
     t_list  *temp_next;
     t_list  *temp_prev;
 
+    temp_next = NULL;
+    temp_prev = NULL;
     if ((begin_list != NULL) && ((*begin_list) != NULL) && ((*begin_list)->next) != NULL)
     {
         /* treat the first element of the list */
